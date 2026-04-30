@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MousseMatch — Find Your Compatible Mousse</title>
+  <meta name="description" content="MousseMatch helps off-road riders instantly find the compatible mousse for their tire brand, model, and size. Covers Michelin, Nitro, Technomousse, and Dunlop." />
+  <meta name="keywords" content="mousse match, tire mousse, enduro mousse, motocross mousse, Technomousse, Nitro Mousse, Michelin Bib Mousse, Dunlop mousse, foam insert, off-road tire" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ─── HERO ─── -->
+  <div class="hero">
+    <div class="logo">Mousse<span>Match</span></div>
+    <div class="tagline">The Off-Road Mousse Compatibility Finder</div>
+    <div class="stat-row">
+      <div class="stat"><div class="stat-num" id="statBrands">16</div><div class="stat-label">Tire Brands</div></div>
+      <div class="stat"><div class="stat-num" id="statModels">—</div><div class="stat-label">Models</div></div>
+      <div class="stat"><div class="stat-num" id="statEntries">323</div><div class="stat-label">Fitments</div></div>
+      <div class="stat"><div class="stat-num">4</div><div class="stat-label">Mousse Brands</div></div>
+    </div>
+  </div>
+
+  <!-- ─── MAIN CARD ─── -->
+  <div class="container">
+    <div class="card">
+      <div class="card-title">Select Your Tire</div>
+
+      <div class="steps">
+
+        <!-- Step 1 -->
+        <div class="step active" id="step1">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <div class="step-label">Tire Brand</div>
+            <select id="selBrand">
+              <option value="">— Choose a brand —</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step" id="step2">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <div class="step-label">Tire Model</div>
+            <select id="selModel" disabled>
+              <option value="">— Choose a model —</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step" id="step3">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <div class="step-label">Tire Size</div>
+            <select id="selSize" disabled>
+              <option value="">— Choose a size —</option>
+            </select>
+          </div>
+        </div>
+
+      </div><!-- /steps -->
+
+      <div class="divider"></div>
+
+      <!-- Results -->
+      <div id="results">
+        <div class="results-header">Compatible Mousses</div>
+        <div class="tire-summary" id="tireSummary"></div>
+        <div class="mousse-grid" id="mousseGrid"></div>
+        <div style="text-align:center">
+          <button class="reset-btn" onclick="resetAll()">↺ &nbsp;New Search</button>
+        </div>
+      </div>
+
+      <!-- No Results -->
+      <div id="noResults" style="display:none">
+        <div class="no-results">
+          <div class="no-results-icon">🔍</div>
+          <h3>No mousse data found</h3>
+          <p>This tire/size combination has no recorded mousse compatibility.<br>Try a different size or contact your mousse supplier.</p>
+        </div>
+        <div style="text-align:center">
+          <button class="reset-btn" onclick="resetAll()">↺ &nbsp;New Search</button>
+        </div>
+      </div>
+
+    </div><!-- /card -->
+  </div><!-- /container -->
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    Sourced from the official Mousse manufacturers fitment Charts.<br>
+    For informational purposes only — always verify compatibility before purchase.<br>
+    &copy; <span id="yr"></span> MousseMatch.com
+  </footer>
+
+  <!-- Scripts: data must load before app -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
