@@ -3,9 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MousseMatch : Find Your Compatible Mousse</title>
+  <title>MousseMatch - Find Your Compatible Mousse</title>
   <meta name="description" content="MousseMatch helps off-road riders instantly find the compatible mousse for their tire brand, model, and size. Covers Michelin, Nitro, Technomousse, and Dunlop." />
   <meta name="keywords" content="mousse match, tire mousse, enduro mousse, motocross mousse, Technomousse, Nitro Mousse, Michelin Bib Mousse, Dunlop mousse, foam insert, off-road tire" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NNXNDXHYPX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NNXNDXHYPX');
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet" />
@@ -36,7 +44,7 @@
       overflow-x: hidden;
     }
 
-    /* ─── HERO ─── */
+    /* --- HERO --- */
     .hero {
       position: relative;
       padding: 60px 24px 50px;
@@ -105,7 +113,7 @@
       margin-top: 2px;
     }
 
-    /* ─── MAIN CARD ─── */
+    /* --- MAIN CARD --- */
     .container {
       max-width: 780px;
       margin: 0 auto;
@@ -138,7 +146,7 @@
       background: var(--border);
     }
 
-    /* ─── STEPS ─── */
+    /* --- STEPS --- */
     .steps { display: flex; flex-direction: column; gap: 20px; }
 
     .step { display: flex; gap: 16px; align-items: flex-start; }
@@ -194,10 +202,10 @@
     select:disabled { opacity: 0.35; cursor: not-allowed; }
     select option { background: #1e2028; color: #f0f0f0; }
 
-    /* ─── DIVIDER ─── */
+    /* --- DIVIDER --- */
     .divider { height: 1px; background: var(--border); margin: 28px 0; }
 
-    /* ─── RESULTS ─── */
+    /* --- RESULTS --- */
     .results-header {
       font-family: 'Bebas Neue', 'Arial Black', sans-serif;
       font-size: 20px;
@@ -305,13 +313,13 @@
     .techno-split .t-std  { color: #e0e0e0; }
     .techno-split .t-soft { color: var(--accent2); }
 
-    /* ─── NO RESULTS ─── */
+    /* --- NO RESULTS --- */
     .no-results { text-align: center; padding: 40px; color: var(--muted); }
     .no-results-icon { font-size: 40px; margin-bottom: 12px; }
     .no-results h3 { font-size: 18px; font-weight: 600; margin-bottom: 6px; color: var(--text); }
     .no-results p { font-size: 14px; line-height: 1.6; }
 
-    /* ─── RESET BUTTON ─── */
+    /* --- RESET BUTTON --- */
     .reset-btn {
       margin-top: 24px;
       display: inline-flex; align-items: center; gap: 8px;
@@ -331,7 +339,7 @@
 
     .reset-btn:hover { border-color: var(--accent); color: var(--accent2); }
 
-    /* ─── FOOTER ─── */
+    /* --- FOOTER --- */
     footer {
       text-align: center;
       padding: 30px 20px 40px;
@@ -340,7 +348,7 @@
       line-height: 1.8;
     }
 
-    /* ─── LOADING ─── */
+    /* --- LOADING --- */
     #loading {
       text-align: center;
       padding: 40px;
@@ -348,7 +356,7 @@
       font-size: 14px;
     }
 
-    /* ─── RESPONSIVE ─── */
+    /* --- RESPONSIVE --- */
     @media (max-width: 520px) {
       .card { padding: 24px 18px; }
       .mousse-grid { grid-template-columns: 1fr 1fr; }
@@ -373,7 +381,7 @@
     <div class="card">
       <div class="card-title">Select Your Tire</div>
 
-      <div id="loading">Loading tire data…</div>
+      <div id="loading">Loading tire data...</div>
 
       <div id="mainContent" style="display:none">
         <div class="steps">
@@ -421,19 +429,19 @@
           <div class="tire-summary" id="tireSummary"></div>
           <div class="mousse-grid" id="mousseGrid"></div>
           <div style="text-align:center">
-            <button class="reset-btn" onclick="resetAll()">↺ &nbsp;New Search</button>
+            <button class="reset-btn" onclick="resetAll()">? &nbsp;New Search</button>
           </div>
         </div>
 
         <!-- No Results -->
         <div id="noResults" style="display:none">
           <div class="no-results">
-            <div class="no-results-icon">🔍</div>
+            <div class="no-results-icon">?</div>
             <h3>No mousse data found</h3>
             <p>This tire/size combination has no recorded mousse compatibility.<br>Try a different size or contact your mousse supplier.</p>
           </div>
           <div style="text-align:center">
-            <button class="reset-btn" onclick="resetAll()">↺ &nbsp;New Search</button>
+            <button class="reset-btn" onclick="resetAll()">? &nbsp;New Search</button>
           </div>
         </div>
 
@@ -444,7 +452,7 @@
 
   <footer>
     Sourced from the official Mousse manufacturers fitment Charts.<br>
-    For informational purposes only — always verify compatibility before purchase.<br>
+    For informational purposes only - always verify compatibility before purchase.<br>
     &copy; <span id="yr"></span> MousseMatch.com
   </footer>
 
@@ -464,7 +472,7 @@
     document.getElementById('loading').style.display     = 'none';
     document.getElementById('mainContent').style.display = 'block';
 
-    // ─── DOM REFS ───
+    // --- DOM REFS ---
     const selBrand = document.getElementById('selBrand');
     const selModel = document.getElementById('selModel');
     const selSize  = document.getElementById('selSize');
@@ -477,7 +485,7 @@
       selBrand.appendChild(o);
     });
 
-    // ─── EVENTS ───
+    // --- EVENTS ---
     selBrand.addEventListener('change', () => {
       const brand = selBrand.value;
       resetSelect(selModel, '-- Choose a model --');
@@ -520,7 +528,7 @@
       showResults();
     });
 
-    // ─── HELPERS ───
+    // --- HELPERS ---
     function showResults() {
       const brand = selBrand.value;
       const model = selModel.value;
@@ -528,7 +536,7 @@
       const entry = DATA.find(d => d.brand === brand && d.model === model && d.size === size);
 
       document.getElementById('tireSummary').innerHTML =
-        `<strong>${brand}</strong> &nbsp;·&nbsp; ${model} &nbsp;·&nbsp; <strong>${size}</strong>`;
+        `<strong>${brand}</strong> &nbsp;?&nbsp; ${model} &nbsp;?&nbsp; <strong>${size}</strong>`;
 
       const mousses = [
         { label: 'Michelin Bib Mousse', key: 'michelin',     cls: 'pill-michelin' },
