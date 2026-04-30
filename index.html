@@ -8,103 +8,604 @@
   <meta name="keywords" content="mousse match, tire mousse, enduro mousse, motocross mousse, Technomousse, Nitro Mousse, Michelin Bib Mousse, Dunlop mousse, foam insert, off-road tire" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d0e11;
+      --surface: #16181d;
+      --surface2: #1e2028;
+      --border: #2a2d37;
+      --accent: #e8421a;
+      --accent2: #ff6b3d;
+      --gold: #f5a623;
+      --text: #f0f0f0;
+      --muted: #7a7f91;
+      --success: #2ecc71;
+      --radius: 12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', system-ui, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* â”€â”€â”€ HERO â”€â”€â”€ */
+    .hero {
+      position: relative;
+      padding: 60px 24px 50px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -80px; left: 50%; transform: translateX(-50%);
+      width: 700px; height: 400px;
+      background: radial-gradient(ellipse, rgba(232,66,26,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .logo {
+      font-family: 'Bebas Neue', 'Arial Black', sans-serif;
+      font-size: clamp(52px, 10vw, 96px);
+      letter-spacing: 4px;
+      line-height: 1;
+      color: #fff;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo span {
+      color: var(--accent2);
+    }
+
+    .tagline {
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 500;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat-row {
+      display: flex;
+      justify-content: center;
+      gap: 36px;
+      margin-top: 28px;
+      position: relative;
+      z-index: 1;
+      flex-wrap: wrap;
+    }
+
+    .stat { text-align: center; }
+
+    .stat-num {
+      font-family: 'Bebas Neue', 'Arial Black', sans-serif;
+      font-size: 32px;
+      color: var(--accent2);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-top: 2px;
+    }
+
+    /* â”€â”€â”€ MAIN CARD â”€â”€â”€ */
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 20px 80px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+    }
+
+    .card-title {
+      font-family: 'Bebas Neue', 'Arial Black', sans-serif;
+      font-size: 20px;
+      letter-spacing: 2px;
+      color: var(--muted);
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* â”€â”€â”€ STEPS â”€â”€â”€ */
+    .steps { display: flex; flex-direction: column; gap: 20px; }
+
+    .step { display: flex; gap: 16px; align-items: flex-start; }
+
+    .step-num {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--surface2);
+      border: 2px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px;
+      color: var(--muted);
+      flex-shrink: 0;
+      transition: all 0.3s;
+    }
+
+    .step.active .step-num { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .step.done   .step-num { background: var(--success); border-color: var(--success); color: #fff; }
+
+    .step-body { flex: 1; }
+
+    .step-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .step.active .step-label { color: var(--accent2); }
+    .step.done   .step-label { color: var(--success); }
+
+    select {
+      width: 100%;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 15px;
+      padding: 13px 40px 13px 16px;
+      border-radius: var(--radius);
+      appearance: none;
+      cursor: pointer;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a7f91' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+    }
+
+    select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(232,66,26,0.15); }
+    select:disabled { opacity: 0.35; cursor: not-allowed; }
+    select option { background: #1e2028; color: #f0f0f0; }
+
+    /* â”€â”€â”€ DIVIDER â”€â”€â”€ */
+    .divider { height: 1px; background: var(--border); margin: 28px 0; }
+
+    /* â”€â”€â”€ RESULTS â”€â”€â”€ */
+    .results-header {
+      font-family: 'Bebas Neue', 'Arial Black', sans-serif;
+      font-size: 20px;
+      letter-spacing: 2px;
+      color: var(--muted);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .results-header::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    .tire-summary {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .tire-summary strong { color: var(--text); font-weight: 600; }
+
+    .mousse-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 14px;
+    }
+
+    .mousse-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 16px;
+      text-align: center;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+      animation: fadeUp 0.4s ease both;
+    }
+
+    .mousse-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+      box-shadow: 0 8px 24px rgba(232,66,26,0.15);
+    }
+
+    .mousse-card:nth-child(2) { animation-delay: 0.06s; }
+    .mousse-card:nth-child(3) { animation-delay: 0.12s; }
+    .mousse-card:nth-child(4) { animation-delay: 0.18s; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .mousse-brand {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .mousse-ref {
+      font-family: 'Bebas Neue', 'Arial Black', sans-serif;
+      font-size: 26px;
+      letter-spacing: 1px;
+      line-height: 1.1;
+    }
+
+    .mousse-ref.multi {
+      font-size: 13px;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-weight: 600;
+      letter-spacing: 0;
+    }
+
+    .mousse-ref.no-match {
+      font-size: 13px;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-weight: 400;
+      color: var(--muted);
+      letter-spacing: 0;
+    }
+
+    .brand-pill {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 3px 10px;
+      border-radius: 99px;
+      border: 1px solid;
+      font-weight: 600;
+    }
+
+    .pill-michelin { color: #4fc3f7; border-color: #4fc3f7; }
+    .pill-nitro    { color: #81c784; border-color: #81c784; }
+    .pill-techno   { color: var(--accent2); border-color: var(--accent2); }
+    .pill-dunlop   { color: var(--gold); border-color: var(--gold); }
+
+    .techno-split { display: flex; flex-direction: column; gap: 4px; }
+    .techno-split .t-std  { color: #e0e0e0; }
+    .techno-split .t-soft { color: var(--accent2); }
+
+    /* â”€â”€â”€ NO RESULTS â”€â”€â”€ */
+    .no-results { text-align: center; padding: 40px; color: var(--muted); }
+    .no-results-icon { font-size: 40px; margin-bottom: 12px; }
+    .no-results h3 { font-size: 18px; font-weight: 600; margin-bottom: 6px; color: var(--text); }
+    .no-results p { font-size: 14px; line-height: 1.6; }
+
+    /* â”€â”€â”€ RESET BUTTON â”€â”€â”€ */
+    .reset-btn {
+      margin-top: 24px;
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 13px;
+      padding: 10px 20px;
+      border-radius: 99px;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+    }
+
+    .reset-btn:hover { border-color: var(--accent); color: var(--accent2); }
+
+    /* â”€â”€â”€ FOOTER â”€â”€â”€ */
+    footer {
+      text-align: center;
+      padding: 30px 20px 40px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* â”€â”€â”€ LOADING â”€â”€â”€ */
+    #loading {
+      text-align: center;
+      padding: 40px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* â”€â”€â”€ RESPONSIVE â”€â”€â”€ */
+    @media (max-width: 520px) {
+      .card { padding: 24px 18px; }
+      .mousse-grid { grid-template-columns: 1fr 1fr; }
+      .stat-row { gap: 24px; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- â”€â”€â”€ HERO â”€â”€â”€ -->
   <div class="hero">
     <div class="logo">Mousse<span>Match</span></div>
     <div class="tagline">The Off-Road Mousse Compatibility Finder</div>
     <div class="stat-row">
       <div class="stat"><div class="stat-num" id="statBrands">16</div><div class="stat-label">Tire Brands</div></div>
-      <div class="stat"><div class="stat-num" id="statModels">â€”</div><div class="stat-label">Models</div></div>
+      <div class="stat"><div class="stat-num" id="statModels">101</div><div class="stat-label">Models</div></div>
       <div class="stat"><div class="stat-num" id="statEntries">323</div><div class="stat-label">Fitments</div></div>
       <div class="stat"><div class="stat-num">4</div><div class="stat-label">Mousse Brands</div></div>
     </div>
   </div>
 
-  <!-- â”€â”€â”€ MAIN CARD â”€â”€â”€ -->
   <div class="container">
     <div class="card">
       <div class="card-title">Select Your Tire</div>
 
-      <div class="steps">
+      <div id="loading">Loading tire dataâ€¦</div>
 
-        <!-- Step 1 -->
-        <div class="step active" id="step1">
-          <div class="step-num">1</div>
-          <div class="step-body">
-            <div class="step-label">Tire Brand</div>
-            <select id="selBrand">
-              <option value="">â€” Choose a brand â€”</option>
-            </select>
+      <div id="mainContent" style="display:none">
+        <div class="steps">
+
+          <!-- Step 1 -->
+          <div class="step active" id="step1">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <div class="step-label">Tire Brand</div>
+              <select id="selBrand">
+                <option value="">â€” Choose a brand â€”</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step" id="step2">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <div class="step-label">Tire Model</div>
+              <select id="selModel" disabled>
+                <option value="">â€” Choose a model â€”</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step" id="step3">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <div class="step-label">Tire Size</div>
+              <select id="selSize" disabled>
+                <option value="">â€” Choose a size â€”</option>
+              </select>
+            </div>
+          </div>
+
+        </div><!-- /steps -->
+
+        <div class="divider"></div>
+
+        <!-- Results -->
+        <div id="results" style="display:none">
+          <div class="results-header">Compatible Mousses</div>
+          <div class="tire-summary" id="tireSummary"></div>
+          <div class="mousse-grid" id="mousseGrid"></div>
+          <div style="text-align:center">
+            <button class="reset-btn" onclick="resetAll()">â†º &nbsp;New Search</button>
           </div>
         </div>
 
-        <!-- Step 2 -->
-        <div class="step" id="step2">
-          <div class="step-num">2</div>
-          <div class="step-body">
-            <div class="step-label">Tire Model</div>
-            <select id="selModel" disabled>
-              <option value="">â€” Choose a model â€”</option>
-            </select>
+        <!-- No Results -->
+        <div id="noResults" style="display:none">
+          <div class="no-results">
+            <div class="no-results-icon">ðŸ”</div>
+            <h3>No mousse data found</h3>
+            <p>This tire/size combination has no recorded mousse compatibility.<br>Try a different size or contact your mousse supplier.</p>
+          </div>
+          <div style="text-align:center">
+            <button class="reset-btn" onclick="resetAll()">â†º &nbsp;New Search</button>
           </div>
         </div>
 
-        <!-- Step 3 -->
-        <div class="step" id="step3">
-          <div class="step-num">3</div>
-          <div class="step-body">
-            <div class="step-label">Tire Size</div>
-            <select id="selSize" disabled>
-              <option value="">â€” Choose a size â€”</option>
-            </select>
-          </div>
-        </div>
-
-      </div><!-- /steps -->
-
-      <div class="divider"></div>
-
-      <!-- Results -->
-      <div id="results">
-        <div class="results-header">Compatible Mousses</div>
-        <div class="tire-summary" id="tireSummary"></div>
-        <div class="mousse-grid" id="mousseGrid"></div>
-        <div style="text-align:center">
-          <button class="reset-btn" onclick="resetAll()">â†º &nbsp;New Search</button>
-        </div>
-      </div>
-
-      <!-- No Results -->
-      <div id="noResults" style="display:none">
-        <div class="no-results">
-          <div class="no-results-icon">ðŸ”</div>
-          <h3>No mousse data found</h3>
-          <p>This tire/size combination has no recorded mousse compatibility.<br>Try a different size or contact your mousse supplier.</p>
-        </div>
-        <div style="text-align:center">
-          <button class="reset-btn" onclick="resetAll()">â†º &nbsp;New Search</button>
-        </div>
-      </div>
+      </div><!-- /mainContent -->
 
     </div><!-- /card -->
   </div><!-- /container -->
 
-  <!-- â”€â”€â”€ FOOTER â”€â”€â”€ -->
   <footer>
     Sourced from the official Mousse manufacturers fitment Charts.<br>
     For informational purposes only â€” always verify compatibility before purchase.<br>
     &copy; <span id="yr"></span> MousseMatch.com
   </footer>
 
-  <!-- Scripts: data must load before app -->
-  <script src="js/data.js"></script>
-  <script src="js/app.js"></script>
+  <!-- Load data first, then app logic -->
+  <script src="data.js"></script>
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
 
+    // Update stats from actual data
+    const uniqueBrands = new Set(DATA.map(d => d.brand)).size;
+    const uniqueModels = new Set(DATA.map(d => d.brand + '|' + d.model)).size;
+    document.getElementById('statBrands').textContent  = uniqueBrands;
+    document.getElementById('statModels').textContent  = uniqueModels;
+    document.getElementById('statEntries').textContent = DATA.length;
+
+    // Show main content, hide loader
+    document.getElementById('loading').style.display     = 'none';
+    document.getElementById('mainContent').style.display = 'block';
+
+    // â”€â”€â”€ DOM REFS â”€â”€â”€
+    const selBrand = document.getElementById('selBrand');
+    const selModel = document.getElementById('selModel');
+    const selSize  = document.getElementById('selSize');
+
+    // Populate brands
+    const brands = [...new Set(DATA.map(d => d.brand))].sort();
+    brands.forEach(b => {
+      const o = document.createElement('option');
+      o.value = b; o.textContent = b;
+      selBrand.appendChild(o);
+    });
+
+    // â”€â”€â”€ EVENTS â”€â”€â”€
+    selBrand.addEventListener('change', () => {
+      const brand = selBrand.value;
+      resetSelect(selModel, 'â€” Choose a model â€”');
+      resetSelect(selSize,  'â€” Choose a size â€”');
+      hideResults();
+      setStep(1, brand ? 'done' : 'active');
+      setStep(2, brand ? 'active' : '');
+      setStep(3, '');
+      if (!brand) return;
+      const models = [...new Set(DATA.filter(d => d.brand === brand).map(d => d.model))].sort();
+      models.forEach(m => {
+        const o = document.createElement('option');
+        o.value = m; o.textContent = m;
+        selModel.appendChild(o);
+      });
+      selModel.disabled = false;
+    });
+
+    selModel.addEventListener('change', () => {
+      const brand = selBrand.value;
+      const model = selModel.value;
+      resetSelect(selSize, 'â€” Choose a size â€”');
+      hideResults();
+      setStep(2, model ? 'done' : 'active');
+      setStep(3, model ? 'active' : '');
+      if (!model) return;
+      const sizes = [...new Set(DATA.filter(d => d.brand === brand && d.model === model).map(d => d.size))].sort();
+      sizes.forEach(s => {
+        const o = document.createElement('option');
+        o.value = s; o.textContent = s;
+        selSize.appendChild(o);
+      });
+      selSize.disabled = false;
+    });
+
+    selSize.addEventListener('change', () => {
+      const size = selSize.value;
+      if (!size) { hideResults(); setStep(3, 'active'); return; }
+      setStep(3, 'done');
+      showResults();
+    });
+
+    // â”€â”€â”€ HELPERS â”€â”€â”€
+    function showResults() {
+      const brand = selBrand.value;
+      const model = selModel.value;
+      const size  = selSize.value;
+      const entry = DATA.find(d => d.brand === brand && d.model === model && d.size === size);
+
+      document.getElementById('tireSummary').innerHTML =
+        `<strong>${brand}</strong> &nbsp;Â·&nbsp; ${model} &nbsp;Â·&nbsp; <strong>${size}</strong>`;
+
+      const mousses = [
+        { label: 'Michelin Bib Mousse', key: 'michelin',     cls: 'pill-michelin' },
+        { label: 'Nitro Mousse',        key: 'nitro',        cls: 'pill-nitro'    },
+        { label: 'Technomousse',        key: 'technomousse', cls: 'pill-techno'   },
+        { label: 'Dunlop Mousse',       key: 'dunlop',       cls: 'pill-dunlop'   },
+      ];
+
+      const hasAny = entry && mousses.some(m =>
+        entry[m.key] && entry[m.key] !== 'No Match' && entry[m.key] !== ''
+      );
+
+      if (!entry || !hasAny) {
+        document.getElementById('results').style.display   = 'none';
+        document.getElementById('noResults').style.display = 'block';
+        return;
+      }
+
+      document.getElementById('noResults').style.display = 'none';
+      const grid = document.getElementById('mousseGrid');
+      grid.innerHTML = '';
+
+      mousses.forEach(({ label, key, cls }) => {
+        const val = entry[key];
+        if (!val || val === '') return;
+
+        const card = document.createElement('div');
+        card.className = 'mousse-card';
+
+        let refHTML;
+        if (val === 'No Match') {
+          refHTML = `<div class="mousse-ref no-match">No Match</div>`;
+        } else if (key === 'technomousse' && val.includes('/')) {
+          const parts = val.split('/').map(p => p.trim());
+          refHTML = `<div class="mousse-ref multi techno-split">
+            ${parts.map((p, i) => `<span class="${i === 0 ? 't-std' : 't-soft'}">${p}</span>`).join('')}
+          </div>`;
+        } else if (val.includes(',')) {
+          refHTML = `<div class="mousse-ref multi">${val}</div>`;
+        } else {
+          refHTML = `<div class="mousse-ref">${val}</div>`;
+        }
+
+        card.innerHTML = `
+          <div class="mousse-brand">${label}</div>
+          ${refHTML}
+          <span class="brand-pill ${cls}">${label.split(' ')[0]}</span>
+        `;
+        grid.appendChild(card);
+      });
+
+      document.getElementById('results').style.display = 'block';
+    }
+
+    function hideResults() {
+      document.getElementById('results').style.display   = 'none';
+      document.getElementById('noResults').style.display = 'none';
+    }
+
+    function resetSelect(sel, placeholder) {
+      sel.innerHTML = `<option value="">${placeholder}</option>`;
+      sel.disabled  = true;
+    }
+
+    function setStep(num, state) {
+      document.getElementById('step' + num).className = 'step' + (state ? ' ' + state : '');
+    }
+
+    function resetAll() {
+      selBrand.value = '';
+      resetSelect(selModel, 'â€” Choose a model â€”');
+      resetSelect(selSize,  'â€” Choose a size â€”');
+      hideResults();
+      setStep(1, 'active');
+      setStep(2, '');
+      setStep(3, '');
+    }
+  </script>
 </body>
 </html>
-
