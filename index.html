@@ -384,7 +384,7 @@
             <div class="step-body">
               <div class="step-label">Tire Brand</div>
               <select id="selBrand">
-                <option value="">â€” Choose a brand â€”</option>
+                <option value="">-- Choose a brand --</option>
               </select>
             </div>
           </div>
@@ -395,7 +395,7 @@
             <div class="step-body">
               <div class="step-label">Tire Model</div>
               <select id="selModel" disabled>
-                <option value="">â€” Choose a model â€”</option>
+                <option value="">-- Choose a model --</option>
               </select>
             </div>
           </div>
@@ -406,7 +406,7 @@
             <div class="step-body">
               <div class="step-label">Tire Size</div>
               <select id="selSize" disabled>
-                <option value="">â€” Choose a size â€”</option>
+                <option value="">-- Choose a size --</option>
               </select>
             </div>
           </div>
@@ -480,8 +480,8 @@
     // â”€â”€â”€ EVENTS â”€â”€â”€
     selBrand.addEventListener('change', () => {
       const brand = selBrand.value;
-      resetSelect(selModel, 'â€” Choose a model â€”');
-      resetSelect(selSize,  'â€” Choose a size â€”');
+      resetSelect(selModel, '-- Choose a model --');
+      resetSelect(selSize,  '-- Choose a size --');
       hideResults();
       setStep(1, brand ? 'done' : 'active');
       setStep(2, brand ? 'active' : '');
@@ -499,7 +499,7 @@
     selModel.addEventListener('change', () => {
       const brand = selBrand.value;
       const model = selModel.value;
-      resetSelect(selSize, 'â€” Choose a size â€”');
+      resetSelect(selSize, '-- Choose a size --');
       hideResults();
       setStep(2, model ? 'done' : 'active');
       setStep(3, model ? 'active' : '');
@@ -599,8 +599,8 @@
 
     function resetAll() {
       selBrand.value = '';
-      resetSelect(selModel, 'â€” Choose a model â€”');
-      resetSelect(selSize,  'â€” Choose a size â€”');
+      resetSelect(selModel, '-- Choose a model --');
+      resetSelect(selSize,  '-- Choose a size --');
       hideResults();
       setStep(1, 'active');
       setStep(2, '');
