@@ -66,6 +66,7 @@
     .pill-techno{color:var(--accent2);border-color:var(--accent2)}
     .pill-air{color:#ce93d8;border-color:#ce93d8}
     .pill-balls{color:var(--gold);border-color:var(--gold)}
+    .pill-xgrip{color:#80cbc4;border-color:#80cbc4}
     .no-results{text-align:center;padding:40px;color:var(--muted)}
     .no-results-icon{font-size:40px;margin-bottom:12px}
     .no-results h3{font-size:18px;font-weight:600;margin-bottom:6px;color:var(--text)}
@@ -85,7 +86,7 @@
       <div class="stat"><div class="stat-num" id="statBrands">--</div><div class="stat-label">Tire Brands</div></div>
       <div class="stat"><div class="stat-num" id="statModels">--</div><div class="stat-label">Models</div></div>
       <div class="stat"><div class="stat-num" id="statEntries">--</div><div class="stat-label">Fitments</div></div>
-      <div class="stat"><div class="stat-num">5</div><div class="stat-label">Mousse Brands</div></div>
+      <div class="stat"><div class="stat-num">6</div><div class="stat-label">Mousse Brands</div></div>
     </div>
   </div>
 
@@ -235,6 +236,7 @@
         {label:'Technomousse',key:'technomousse',cls:'pill-techno'},
         {label:'Airmousse',key:'airmousse',cls:'pill-air'},
         {label:'Mr. Wolf MousseBalls',key:'mousseballs',cls:'pill-balls'},
+        {label:'X-GRIP',key:'xgrip',cls:'pill-xgrip'},
       ];
       const hasAny=entry&&mousses.some(m=>entry[m.key]&&entry[m.key]!==''&&entry[m.key].toLowerCase()!=='no match'&&entry[m.key].toLowerCase()!=='none');
       if(!entry||!hasAny){
