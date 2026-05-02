@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNiIgZmlsbD0iIzBkMGUxMSIvPjxjaXJjbGUgY3g9IjE2IiBjeT0iMTYiIHI9IjEyIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZjZiM2QiIHN0cm9rZS13aWR0aD0iNCIvPjx0ZXh0IHg9IjE2IiB5PSIyMSIgZm9udC1mYW1pbHk9IkFyaWFsIEJsYWNrLEFyaWFsIiBmb250LXdlaWdodD0iOTAwIiBmb250LXNpemU9IjEzIiBmaWxsPSIjZmY2YjNkIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5NTTwvdGV4dD48L3N2Zz4=" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MousseMatch -- Find Your Compatible Mousse</title>
   <meta name="description" content="MousseMatch helps off-road riders instantly find the compatible mousse for their tire brand, model, and size." />
@@ -77,6 +78,12 @@
     .reset-btn:hover{border-color:var(--accent);color:var(--accent2)}
     footer{text-align:center;padding:30px 20px 40px;font-size:12px;color:var(--muted);line-height:1.8}
     #loading{text-align:center;padding:40px;color:var(--muted);font-size:14px}
+    /* CONTACT SECTION */
+    .contact-section{max-width:820px;margin:0 auto 20px;padding:0 20px}
+    .contact-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px 24px;text-align:center;display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap}
+    .contact-title{font-family:'Bebas Neue','Arial Black',sans-serif;font-size:18px;letter-spacing:2px;color:var(--muted)}
+    .contact-btn{display:inline-flex;align-items:center;gap:8px;padding:9px 20px;border-radius:99px;font-family:'DM Sans',system-ui,sans-serif;font-size:13px;font-weight:600;text-decoration:none;transition:all 0.2s;background:var(--accent);color:#fff}
+    .contact-btn:hover{background:var(--accent2);transform:translateY(-2px);box-shadow:0 6px 16px rgba(232,66,26,0.3)}
     @media(max-width:520px){.card{padding:24px 18px}.mousse-grid{grid-template-columns:1fr 1fr}.stat-row{gap:20px}}
   </style>
 </head>
@@ -147,6 +154,16 @@
           <div style="text-align:center"><button class="reset-btn" onclick="resetAll()">&#8634; &nbsp;New Search</button></div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- CONTACT SECTION -->
+  <div class="contact-section">
+    <div class="contact-card">
+      <div class="contact-title">Get In Touch</div>
+      <a class="contact-btn" href="mailto:moussematch@gmail.com">
+        &#9993; &nbsp;moussematch@gmail.com
+      </a>
     </div>
   </div>
 
