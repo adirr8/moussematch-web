@@ -151,8 +151,8 @@
   </div>
 
   <footer>
-    Sourced from the official Mousse manufacturers fitment Charts.<br>
-    For informational purposes only -- always verify compatibility before purchase.<br>
+    Sourced from the official mousse manufacturers fitment Charts.<br>
+    For informational purposes only - always verify compatibility before purchase.<br>
     &copy; <span id="yr"></span> MousseMatch.com
   </footer>
 
@@ -233,13 +233,13 @@
       if(rim)summary+=` &nbsp;&middot;&nbsp; Rim: <strong>${rim}"</strong>`;
       document.getElementById('tireSummary').innerHTML=summary;
       const mousses=[
-        {label:'Michelin Bib Mousse',  key:'michelin',     cls:'pill-michelin', pill:'Michelin'},
-        {label:'Nitro Mousse',         key:'nitro',        cls:'pill-nitro',    pill:'Nitro'},
-        {label:'Technomousse',         key:'technomousse', cls:'pill-techno',   pill:'Technomousse'},
-        {label:'Airmousse',            key:'airmousse',    cls:'pill-air',      pill:'Airmousse'},
-        {label:'Mr. Wolf MousseBalls', key:'mousseballs',  cls:'pill-balls',    pill:'Mr. Wolf MousseBalls'},
-        {label:'X-GRIP',               key:'xgrip',        cls:'pill-xgrip',    pill:'X-GRIP'},
-        {label:'Dunlop Mousse',        key:'dunlop',       cls:'pill-dunlop',   pill:'Dunlop'},
+        {label:'Michelin Bib Mousse',key:'michelin',cls:'pill-michelin'},
+        {label:'Nitro Mousse',key:'nitro',cls:'pill-nitro'},
+        {label:'Technomousse',key:'technomousse',cls:'pill-techno'},
+        {label:'Airmousse',key:'airmousse',cls:'pill-air'},
+        {label:'Mr. Wolf MousseBalls',key:'mousseballs',cls:'pill-balls'},
+        {label:'X-GRIP',key:'xgrip',cls:'pill-xgrip'},
+        {label:'Dunlop Mousse',key:'dunlop',cls:'pill-dunlop'},
       ];
       const hasAny=entry&&mousses.some(m=>entry[m.key]&&entry[m.key]!==''&&entry[m.key].toLowerCase()!=='no match'&&entry[m.key].toLowerCase()!=='none');
       if(!entry||!hasAny){
@@ -250,7 +250,7 @@
       document.getElementById('noResults').style.display='none';
       const grid=document.getElementById('mousseGrid');
       grid.innerHTML='';
-      mousses.forEach(({label,key,cls,pill})=>{
+      mousses.forEach(({label,key,cls})=>{
         const val=entry[key];
         if(!val||val===''||val==='None')return;
         const card=document.createElement('div');card.className='mousse-card';
@@ -259,7 +259,7 @@
         if(isNoMatch){refHTML=`<div class="mousse-ref no-match">No Match</div>`;}
         else if(val.length>20){refHTML=`<div class="mousse-ref small">${val.replace(/,\s*/g,'<br>').replace(/:\s*/g,': ')}</div>`;}
         else{refHTML=`<div class="mousse-ref">${val}</div>`;}
-        card.innerHTML=`<div class="mousse-brand-label">${label}</div>${refHTML}<span class="brand-pill ${cls}">${pill}</span>`;
+        card.innerHTML=`<div class="mousse-brand-label">${label}</div>${refHTML}<span class="brand-pill ${cls}">${label.split(' ')[0]}</span>`;
         grid.appendChild(card);
       });
       document.getElementById('results').style.display='block';
