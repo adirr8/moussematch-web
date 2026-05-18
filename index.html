@@ -226,8 +226,8 @@
       setStep(3,size?'done':'active');setStep(4,'');
       if(!size){hideStep4();return;}
       const matches=DATA.filter(d=>d.brand===brand&&d.model===model&&d.size===size);
-      const mousse_keys=['michelin','nitro','technomousse','airmousse','mousseballs','xgrip','dunlop'];
-      const rimMatches=matches.filter(d=>d.rim&&d.rim!=='None'&&d.rim!=='null'&&d.rim!==''&&mousse_keys.some(k=>d[k]&&d[k]!==''&&d[k].toLowerCase()!=='no match'));
+      // Only Nitro and Airmousse use rim width — only show rim step if those have values
+      const rimMatches=matches.filter(d=>d.rim&&d.rim!=='None'&&d.rim!=='null'&&d.rim!==''&&((d.nitro&&d.nitro!==''&&d.nitro.toLowerCase()!=='no match')||(d.airmousse&&d.airmousse!==''&&d.airmousse.toLowerCase()!=='no match')));
       const rims=[...new Set(rimMatches.map(d=>d.rim))].sort();
       if(rims.length>0){
         showStep4();
