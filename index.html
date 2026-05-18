@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNiIgZmlsbD0iIzBkMGUxMSIvPjxjaXJjbGUgY3g9IjE2IiBjeT0iMTYiIHI9IjEyIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZjZiM2QiIHN0cm9rZS13aWR0aD0iNCIvPjx0ZXh0IHg9IjE2IiB5PSIyMSIgZm9udC1mYW1pbHk9IkFyaWFsIEJsYWNrLEFyaWFsIiBmb250LXdlaWdodD0iOTAwIiBmb250LXNpemU9IjEzIiBmaWxsPSIjZmY2YjNkIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5NTTwvdGV4dD48L3N2Zz4=" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MousseMatch -- Find Your Compatible Mousse</title>
+  <title>MousseMatch - Find Your Compatible Mousse</title>
   <meta name="description" content="MousseMatch helps off-road riders instantly find the compatible mousse for their tire brand, model, and size." />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NNXNDXHYPX"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NNXNDXHYPX');</script>
@@ -252,12 +252,12 @@
       if(rim)summary+=` &nbsp;&middot;&nbsp; Rim: <strong>${rim}"</strong>`;
       document.getElementById('tireSummary').innerHTML=summary;
       const mousses=[
+        {label:'X-GRIP',               key:'xgrip',        cls:'pill-xgrip',    pill:'X-GRIP'},
         {label:'Michelin Bib Mousse',  key:'michelin',     cls:'pill-michelin', pill:'Michelin'},
         {label:'Nitro Mousse',         key:'nitro',        cls:'pill-nitro',    pill:'Nitro'},
         {label:'Technomousse',         key:'technomousse', cls:'pill-techno',   pill:'Technomousse'},
         {label:'Airmousse',            key:'airmousse',    cls:'pill-air',      pill:'Airmousse'},
         {label:'Mr. Wolf MousseBalls', key:'mousseballs',  cls:'pill-balls',    pill:'Mr. Wolf MousseBalls'},
-        {label:'X-GRIP',               key:'xgrip',        cls:'pill-xgrip',    pill:'X-GRIP'},
         {label:'Dunlop Mousse',        key:'dunlop',       cls:'pill-dunlop',   pill:'Dunlop'},
       ];
       const hasAny=entry&&mousses.some(m=>entry[m.key]&&entry[m.key]!==''&&entry[m.key].toLowerCase()!=='no match'&&entry[m.key].toLowerCase()!=='none');
