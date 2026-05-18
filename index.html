@@ -168,7 +168,7 @@
   </div>
 
   <footer>
-    Sourced from the official mousse manufacturers fitment Charts.<br>
+    Sourced from the official Mousse manufacturers fitment Charts.<br>
     For informational purposes only &mdash; always verify compatibility before purchase.<br>
     &copy; <span id="yr"></span> MousseMatch.com
   </footer>
@@ -226,7 +226,9 @@
       setStep(3,size?'done':'active');setStep(4,'');
       if(!size){hideStep4();return;}
       const matches=DATA.filter(d=>d.brand===brand&&d.model===model&&d.size===size);
-      const rims=[...new Set(matches.map(d=>d.rim).filter(r=>r&&r!=='None'&&r!=='null'&&r!==''))].sort();
+      const mousse_keys=['michelin','nitro','technomousse','airmousse','mousseballs','xgrip','dunlop'];
+      const rimMatches=matches.filter(d=>d.rim&&d.rim!=='None'&&d.rim!=='null'&&d.rim!==''&&mousse_keys.some(k=>d[k]&&d[k]!==''&&d[k].toLowerCase()!=='no match'));
+      const rims=[...new Set(rimMatches.map(d=>d.rim))].sort();
       if(rims.length>0){
         showStep4();
         rims.forEach(r=>{const o=document.createElement('option');o.value=r;o.textContent=r+'"';selRim.appendChild(o);});
