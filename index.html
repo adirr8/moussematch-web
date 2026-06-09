@@ -112,6 +112,25 @@
     .contact-btn{display:inline-flex;align-items:center;gap:8px;padding:9px 20px;border-radius:99px;font-family:'DM Sans',system-ui,sans-serif;font-size:13px;font-weight:600;text-decoration:none;transition:all 0.2s;background:var(--accent);color:#fff}
     .contact-btn:hover{background:var(--accent2);transform:translateY(-2px);box-shadow:0 6px 16px rgba(232,66,26,0.3)}
     @media(max-width:520px){.card{padding:24px 18px}.mousse-grid{grid-template-columns:1fr 1fr}.stat-row{gap:20px}}
+    /* NAV */
+    .site-nav{display:flex;justify-content:center;gap:8px;padding:0 20px 32px;position:relative;z-index:1}
+    .nav-tab{font-family:'DM Sans',system-ui,sans-serif;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;padding:10px 22px;border-radius:99px;border:1px solid var(--border);background:transparent;color:var(--text);cursor:pointer;transition:all 0.2s}
+    .nav-tab:hover{border-color:var(--accent2);color:var(--accent2)}
+    .nav-tab.active{background:var(--accent);border-color:var(--accent);color:#fff}
+    /* TOOLS PAGE */
+    .tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:8px}
+    .tool-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:20px;display:flex;flex-direction:column;gap:10px}
+    .tool-img{width:100%;height:140px;object-fit:contain;border-radius:8px;background:var(--surface);margin-bottom:2px}
+    .tool-name{font-weight:600;font-size:14px;line-height:1.4;color:var(--text)}
+    .tool-desc{font-size:12px;color:var(--muted);line-height:1.5;flex:1}
+    .tool-price{font-family:'Bebas Neue','Arial Black',sans-serif;font-size:20px;color:var(--accent2);letter-spacing:1px}
+    .tool-btn{display:inline-block;margin-top:4px;background:var(--gold);color:#1a1200;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;padding:7px 14px;border-radius:99px;text-decoration:none;text-align:center;transition:opacity 0.2s}
+    .tool-btn:hover{opacity:0.85}
+    .tools-section{margin-bottom:32px}
+    .tools-section:last-child{margin-bottom:0}
+    .tools-subheading{font-family:'Bebas Neue','Arial Black',sans-serif;font-size:16px;letter-spacing:2px;color:var(--text);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+    .tools-subheading::after{content:'';flex:1;height:1px;background:var(--border)}
+    @media(max-width:520px){.tools-grid{grid-template-columns:1fr 1fr}}
   </style>
 </head>
 <body>
@@ -126,6 +145,13 @@
     </div>
   </div>
 
+  <nav class="site-nav">
+    <button class="nav-tab active" onclick="showPage('main')">Main</button>
+    <button class="nav-tab" onclick="showPage('tools')">Tire &amp; Mousse Changing Tools</button>
+  </nav>
+
+  <!-- MAIN PAGE -->
+  <div id="page-main">
   <div class="container">
     <div class="card">
       <div class="card-title">Select Your Tire</div>
@@ -184,6 +210,78 @@
     </div>
   </div>
 
+  </div><!-- /page-main -->
+
+  <!-- TOOLS PAGE -->
+  <div id="page-tools" style="display:none">
+  <div class="container">
+    <div class="card">
+<!-- Tire/Mousse Changers -->
+      <div class="tools-section">
+        <div class="tools-subheading">Tire / Mousse Changers</div>
+        <div class="tools-grid">
+          <div class="tool-card">
+            <img class="tool-img" src="https://m.media-amazon.com/images/I/61CQm5Z3z2L._AC_SY300_SX300_QL70_FMwebp_.jpg" alt="Rabaconda 3MMC Tire Changer">
+            <div class="tool-name">Rabaconda Dirt Bike Tire Changer (3MMC)</div>
+            <div class="tool-desc">The fastest bead breaker and tire changer for dirt and dual sport bikes. Built for speed and ease — no more fighting with spoons alone.</div>
+            <div class="tool-price">$499.00</div>
+            <a class="tool-btn" href="https://www.amazon.com/dp/B00N3C9J54?tag=mousse1-20" target="_blank" rel="noopener sponsored">Buy on Amazon ↗</a>
+          </div>
+          <div class="tool-card">
+            <img class="tool-img" src="https://m.media-amazon.com/images/I/51QL465VqHL._AC_SY300_SX300_QL70_FMwebp_.jpg" alt="Neutron Speed Pro Tire Changer">
+            <div class="tool-name">Neutron Speed Pro Tire & Mousse Changer</div>
+            <div class="tool-desc">Dirt bike tire changer, bead breaker, and mousse changer in one. Compatible with tubes and mousses for dirt and dual sport bikes.</div>
+            <div class="tool-price">$318.99</div>
+            <a class="tool-btn" href="https://www.amazon.com/dp/B0CKTPX38V?tag=mousse1-20" target="_blank" rel="noopener sponsored">Buy on Amazon ↗</a>
+          </div>
+          <div class="tool-card">
+            <img class="tool-img" src="https://m.media-amazon.com/images/I/61tAMjfas7L._AC_SY450_.jpg" alt="VEVOR Dirt Bike Tire Changer Kit">
+            <div class="tool-name">VEVOR Dirt Bike Tire Changer Kit</div>
+            <div class="tool-desc">Full kit for 16"–21" wheels with bead breaker, tire irons, protective sleeves, and storage bag. Fits 15/17/20/25mm axles.</div>
+            <div class="tool-price">$156.90</div>
+            <a class="tool-btn" href="https://www.amazon.com/dp/B0GH3JM1GZ?tag=mousse1-20" target="_blank" rel="noopener sponsored">Buy on Amazon ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="tools-section">
+        <div class="tools-subheading">Tools</div>
+        <div class="tools-grid">
+          <div class="tool-card">
+            <img class="tool-img" src="https://m.media-amazon.com/images/I/61y8DsheflL._AC_SX355_.jpg" alt="Motion Pro Tire Iron Set">
+            <div class="tool-name">Motion Pro Spoon Type Tire Iron Set</div>
+            <div class="tool-desc">Professional-grade spoon irons for mounting and removing off-road tires. A must-have for any mousse install.</div>
+            <div class="tool-price">$48.99</div>
+            <a class="tool-btn" href="https://www.amazon.com/dp/B000QFVJ5O?tag=mousse1-20" target="_blank" rel="noopener sponsored">Buy on Amazon ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Miscellaneous -->
+      <div class="tools-section">
+        <div class="tools-subheading">Miscellaneous</div>
+        <div class="tools-grid">
+          <div class="tool-card">
+            <img class="tool-img" src="https://m.media-amazon.com/images/I/71Q8MhX+gTL._AC_SY300_SX300_QL70_FMwebp_.jpg" alt="Rim Protectors 2-Pack">
+            <div class="tool-name">Rim Protectors (2-Pack)</div>
+            <div class="tool-desc">Plastic rim guards that sit between your tire irons and the rim, preventing scratches and gouges during changes.</div>
+            <div class="tool-price">$11.99</div>
+            <a class="tool-btn" href="https://www.amazon.com/dp/B0FMXWT38G?tag=mousse1-20" target="_blank" rel="noopener sponsored">Buy on Amazon ↗</a>
+          </div>
+          <div class="tool-card">
+            <img class="tool-img" src="https://m.media-amazon.com/images/I/51NRe2PYuyL._AC_SY300_SX300_QL70_FMwebp_.jpg" alt="Nuetech Nitro Mousse Lube">
+            <div class="tool-name">Nuetech Nitro Mousse Lube (50g)</div>
+            <div class="tool-desc">Purpose-made lubricant for installing Nitro Mousse foam inserts. Reduces friction and makes seating the mousse much easier.</div>
+            <div class="tool-price">$15.95</div>
+            <a class="tool-btn" href="https://www.amazon.com/dp/B077CR8XBT?tag=mousse1-20" target="_blank" rel="noopener sponsored">Buy on Amazon ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div><!-- /page-tools -->
+
   <!-- CONTACT SECTION -->
   <div class="contact-section">
     <div class="contact-card">
@@ -195,13 +293,19 @@
   </div>
 
   <footer>
-    Sourced from the official Mousse manufacturers fitment Charts.<br>
-    For informational purposes only &mdash; always verify compatibility before purchase.<br>
+    Sourced from the official mousse manufacturers fitment charts/files &mdash; always verify compatibility before purchase.<br>
+    As an Amazon Associate I earn from qualifying purchases.<br>
     &copy; <span id="yr"></span> MousseMatch.com
   </footer>
 
   <script src="data.js"></script>
   <script>
+    function showPage(name){
+      document.getElementById('page-main').style.display  = name==='main'  ? '' : 'none';
+      document.getElementById('page-tools').style.display = name==='tools' ? '' : 'none';
+      document.querySelectorAll('.nav-tab').forEach((t,i)=>t.classList.toggle('active',(name==='main'&&i===0)||(name==='tools'&&i===1)));
+    }
+
     document.getElementById('yr').textContent = new Date().getFullYear();
     document.getElementById('statBrands').textContent  = new Set(DATA.map(d=>d.brand)).size;
     document.getElementById('statModels').textContent  = new Set(DATA.map(d=>d.brand+'|'+d.model)).size;
@@ -272,6 +376,56 @@
       showResults(selBrand.value,selModel.value,selSize.value,rim);
     });
 
+    const MICHELIN_AFFILIATE={
+      'M14':      'https://www.amazon.com/dp/B071NPSYK7?tag=mousse1-20&smid=A122T64JJB9KPU',
+      'M14S':     'https://www.amazon.com/dp/B0GSSLG2GV?tag=mousse1-20&smid=A122T64JJB9KPU',
+      'M14X/M18': 'https://www.amazon.com/dp/B071NPSYK7?tag=mousse1-20&smid=A122T64JJB9KPU',
+      'M15':      'https://www.amazon.com/dp/B01NCJIMJP?tag=mousse1-20&smid=A122T64JJB9KPU',
+      'M15/M16':  'https://www.amazon.com/dp/B01NCJIMJP?tag=mousse1-20&smid=A122T64JJB9KPU',
+      'M16':      'https://www.amazon.com/dp/B07D1NJPHW?tag=mousse1-20&smid=A122T64JJB9KPU',
+      'M16S':     'https://www.amazon.com/dp/B0GSSLF33D?tag=mousse1-20&smid=A122T64JJB9KPU',
+      'M18':      'https://www.amazon.com/dp/B0711FFP81?tag=mousse1-20&smid=A122T64JJB9KPU',
+      'M199':     'https://www.amazon.com/dp/B072BKHG39?tag=mousse1-20&smid=A122T64JJB9KPU',
+      'M22':      'https://www.amazon.com/dp/B071YWV5FS?tag=mousse1-20&smid=A122T64JJB9KPU',
+    };
+    function getMichelinURL(val){
+      if(MICHELIN_AFFILIATE[val])return MICHELIN_AFFILIATE[val];
+      const m=val.match(/\b(M\d+S?)\b/);
+      if(m&&MICHELIN_AFFILIATE[m[1]])return MICHELIN_AFFILIATE[m[1]];
+      return'https://www.amazon.com/s?k=Michelin+Bib+Mousse+'+encodeURIComponent(val)+'&tag=mousse1-20&smid=A122T64JJB9KPU';
+    }
+
+    const NITRO_ASIN={
+      'NM18-270':'B0CC3GP3CG','NM18-285':'B077CRB2L7','NM18-305':'B07HF82W4M',
+      'NM18-325':'B07DNM7XX2','NM18-345':'B071HKWGVR','NM19-255':'B077CNXQM8',
+      'NM19-280':'B077CSG68J','NM21-210':'B07HF7QVMY','NM21-220':'B07HF62R21',
+      'NM21-235':'B073ZL5S23',
+    };
+    function getNitroURL(val){
+      const m=val.match(/\bNM\d+-\d+\b/);
+      if(m){
+        const code=m[0];
+        if(NITRO_ASIN[code])return'https://www.amazon.com/dp/'+NITRO_ASIN[code]+'?tag=mousse1-20&smid=A122T64JJB9KPU';
+        return'https://www.amazon.com/s?k=Nitro+Mousse+'+encodeURIComponent(code)+'&tag=mousse1-20&smid=A122T64JJB9KPU';
+      }
+      return'https://www.amazon.com/s?k=Nitro+Mousse+enduro&tag=mousse1-20&smid=A122T64JJB9KPU';
+    }
+
+    const TECHNO_ASIN={
+      'M001':'B08666HC61','M002':'B087XMP3NZ','M003':'B08667J22B',
+      'M004':'B0865KMLPY','M005':'B087XN9F92','M006':'B087XNC2W6',
+      'M007':'B087XNP1G1','M008':'B087XNTFG8','M015':'B087XN9F94',
+    };
+    function getTechnoURL(val){
+      const m=val.match(/Black Series\/Standard:\s*([A-Z0-9]+)/);
+      if(m&&m[1]!=='No'){
+        const code=m[1];
+        if(TECHNO_ASIN[code])return'https://www.amazon.com/dp/'+TECHNO_ASIN[code]+'?tag=mousse1-20&smid=A122T64JJB9KPU';
+        return'https://www.amazon.com/s?k=Technomousse+'+encodeURIComponent(code)+'&tag=mousse1-20&smid=A122T64JJB9KPU';
+      }
+      return'https://www.amazon.com/s?k=Technomousse&tag=mousse1-20&smid=A122T64JJB9KPU';
+    }
+
     function showResults(brand,model,size,rim){
       const entries=DATA.filter(d=>d.brand===brand&&d.model===model&&d.size===size);
       const entry=rim?entries.find(d=>d.rim===rim)||entries[0]:entries[0];
@@ -280,9 +434,9 @@
       document.getElementById('tireSummary').innerHTML=summary;
       const mousses=[
         {label:'X-GRIP',               key:'xgrip',        cls:'pill-xgrip',    pill:'X-GRIP'},
-        {label:'Michelin Bib Mousse',  key:'michelin',     cls:'pill-michelin', pill:'Michelin'},
-        {label:'Nitro Mousse',         key:'nitro',        cls:'pill-nitro',    pill:'Nitro'},
-        {label:'Technomousse',         key:'technomousse', cls:'pill-techno',   pill:'Technomousse'},
+        {label:'Michelin Bib Mousse',  key:'michelin',     cls:'pill-michelin', pill:'Michelin', getUrl:getMichelinURL},
+        {label:'Nitro Mousse',         key:'nitro',        cls:'pill-nitro',    pill:'Nitro',        getUrl:getNitroURL},
+        {label:'Technomousse',         key:'technomousse', cls:'pill-techno',   pill:'Technomousse', getUrl:getTechnoURL},
         {label:'Airmousse',            key:'airmousse',    cls:'pill-air',      pill:'Airmousse'},
         {label:'Mr. Wolf MousseBalls', key:'mousseballs',  cls:'pill-balls',    pill:'Mr. Wolf MousseBalls'},
         {label:'Dunlop Mousse',        key:'dunlop',       cls:'pill-dunlop',   pill:'Dunlop'},
@@ -296,7 +450,7 @@
       document.getElementById('noResults').style.display='none';
       const grid=document.getElementById('mousseGrid');
       grid.innerHTML='';
-      mousses.forEach(({label,key,cls,pill})=>{
+      mousses.forEach(({label,key,cls,pill,getUrl})=>{
         const val=entry[key];
         if(!val||val===''||val==='None')return;
         const card=document.createElement('div');card.className='mousse-card';
@@ -305,7 +459,13 @@
         if(isNoMatch){refHTML=`<div class="mousse-ref no-match">No Match</div>`;}
         else if(val.length>20){refHTML=`<div class="mousse-ref small">${val.replace(/,\s*/g,'<br>').replace(/:\s*/g,': ')}</div>`;}
         else{refHTML=`<div class="mousse-ref">${val}</div>`;}
-        card.innerHTML=`<div class="mousse-brand-label">${label}</div>${refHTML}<span class="brand-pill ${cls}">${pill}</span>`;
+        const inner=`<div class="mousse-brand-label">${label}</div>${refHTML}<span class="brand-pill ${cls}">${pill}</span>`;
+        if(getUrl&&!isNoMatch){
+          const url=getUrl(val);
+          card.innerHTML=`<a href="${url}" target="_blank" rel="noopener sponsored" style="display:block;text-decoration:none;color:inherit">${inner}<div style="margin-top:10px;display:inline-block;background:#f5a623;color:#1a1200;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;padding:5px 12px;border-radius:99px;">Buy on Amazon ↗</div></a>`;
+        }else{
+          card.innerHTML=inner;
+        }
         grid.appendChild(card);
       });
       document.getElementById('results').style.display='block';
