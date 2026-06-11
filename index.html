@@ -11,8 +11,8 @@
 
   <!-- Primary SEO -->
   <title>MousseMatch - Find Your Compatible Mousse | Off-Road Tire Mousse Finder</title>
-  <meta name="description" content="MousseMatch is the free off-road mousse compatibility finder. Select your tire brand, model and size to instantly find compatible mousses from Michelin, Nitro, Technomousse, Airmousse, X-GRIP, Dunlop and Mr. Wolf MousseBalls." />
-  <meta name="keywords" content="tire mousse, mousse compatibility, enduro mousse, motocross mousse, Michelin Bib Mousse, Nitro Mousse, Technomousse, Airmousse, X-GRIP mousse, Dunlop mousse, MousseBalls, foam insert, off-road tire, mousse size chart, mousse fitment guide" />
+  <meta name="description" content="MousseMatch is the free off-road mousse compatibility finder. Select your tire brand, model and size to instantly find compatible mousses from Michelin, Nitro, Technomousse, Airmousse, X-GRIP, Dunlop, Tusk and Mr. Wolf MousseBalls." />
+  <meta name="keywords" content="tire mousse, mousse compatibility, enduro mousse, motocross mousse, Michelin Bib Mousse, Nitro Mousse, Technomousse, Airmousse, X-GRIP mousse, Dunlop mousse, Tusk TM1 mousse, MousseBalls, foam insert, off-road tire, mousse size chart, mousse fitment guide" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://moussematch.com/" />
 
@@ -97,6 +97,7 @@
     .pill-balls{color:var(--gold);border-color:var(--gold)}
     .pill-xgrip{color:#80cbc4;border-color:#80cbc4}
     .pill-dunlop{color:#f5a623;border-color:#f5a623}
+    .pill-tusk{color:#a5d6a7;border-color:#a5d6a7}
     .no-results{text-align:center;padding:40px;color:var(--muted)}
     .no-results-icon{font-size:40px;margin-bottom:12px}
     .no-results h3{font-size:18px;font-weight:600;margin-bottom:6px;color:var(--text)}
@@ -126,10 +127,11 @@
     .tool-price{font-family:'Bebas Neue','Arial Black',sans-serif;font-size:20px;color:var(--accent2);letter-spacing:1px}
     .tool-btn{display:inline-block;margin-top:4px;background:var(--gold);color:#1a1200;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;padding:7px 14px;border-radius:99px;text-decoration:none;text-align:center;transition:opacity 0.2s}
     .tool-btn:hover{opacity:0.85}
-    .tools-section{margin-bottom:32px}
+    .tools-section{margin-bottom:28px}
     .tools-section:last-child{margin-bottom:0}
-    .tools-subheading{font-family:'Bebas Neue','Arial Black',sans-serif;font-size:16px;letter-spacing:2px;color:var(--text);margin-bottom:14px;display:flex;align-items:center;gap:10px}
-    .tools-subheading::after{content:'';flex:1;height:1px;background:var(--border)}
+    .tools-subheading{font-family:'Bebas Neue','Arial Black',sans-serif;font-size:14px;letter-spacing:2px;color:var(--text);margin-bottom:14px;background:var(--surface2);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:9px 14px}
+    .tools-subheading.sh-gold{border-left-color:var(--gold)}
+    .tools-subheading.sh-muted{border-left-color:var(--muted)}
     @media(max-width:520px){.tools-grid{grid-template-columns:1fr 1fr}}
   </style>
 </head>
@@ -141,7 +143,7 @@
       <div class="stat"><div class="stat-num" id="statBrands">--</div><div class="stat-label">Tire Brands</div></div>
       <div class="stat"><div class="stat-num" id="statModels">--</div><div class="stat-label">Models</div></div>
       <div class="stat"><div class="stat-num" id="statEntries">--</div><div class="stat-label">Fitments</div></div>
-      <div class="stat"><div class="stat-num">7</div><div class="stat-label">Mousse Brands</div></div>
+      <div class="stat"><div class="stat-num">8</div><div class="stat-label">Mousse Brands</div></div>
     </div>
   </div>
 
@@ -246,7 +248,7 @@
 
       <!-- Tools -->
       <div class="tools-section">
-        <div class="tools-subheading">Tools</div>
+        <div class="tools-subheading sh-gold">Tools</div>
         <div class="tools-grid">
           <div class="tool-card">
             <img class="tool-img" src="https://m.media-amazon.com/images/I/61nE3MgdCrL._AC_SY355_.jpg" alt="Rabaconda Pro Tire Iron Set">
@@ -267,8 +269,15 @@
 
       <!-- Miscellaneous -->
       <div class="tools-section">
-        <div class="tools-subheading">Miscellaneous</div>
+        <div class="tools-subheading sh-muted">Miscellaneous</div>
         <div class="tools-grid">
+          <div class="tool-card">
+            <img class="tool-img" src="https://m.media-amazon.com/images/I/41Q-hX3s1PL._AC_SX425_.jpg" alt="Tusk Motorcycle Tire Bead Tool">
+            <div class="tool-name">Tusk Motorcycle Tire Bead Tool</div>
+            <div class="tool-desc">Heavy-duty bead seating tool for front and rear tires. Compact steel construction — handy for both shop and trail use.</div>
+            <div class="tool-price">$14.30</div>
+            <a class="tool-btn" href="https://www.amazon.com/dp/B002GJZSMS?tag=mousse1-20" target="_blank" rel="noopener sponsored">Buy on Amazon ↗</a>
+          </div>
           <div class="tool-card">
             <img class="tool-img" src="https://m.media-amazon.com/images/I/71Q8MhX+gTL._AC_SY300_SX300_QL70_FMwebp_.jpg" alt="Rim Protectors 2-Pack">
             <div class="tool-name">Rim Protectors (2-Pack)</div>
@@ -392,8 +401,8 @@
       setStep(3,size?'done':'active');setStep(4,'');
       if(!size){hideStep4();return;}
       const matches=DATA.filter(d=>d.brand===brand&&d.model===model&&d.size===size);
-      // Only Nitro and Airmousse use rim width — only show rim step if those have values
-      const rimMatches=matches.filter(d=>d.rim&&d.rim!=='None'&&d.rim!=='null'&&d.rim!==''&&((d.nitro&&d.nitro!==''&&d.nitro.toLowerCase()!=='no match')||(d.airmousse&&d.airmousse!==''&&d.airmousse.toLowerCase()!=='no match')));
+      // Nitro, Airmousse, and Tusk use rim width — only show rim step if those have values
+      const rimMatches=matches.filter(d=>d.rim&&d.rim!=='None'&&d.rim!=='null'&&d.rim!==''&&((d.nitro&&d.nitro!==''&&d.nitro.toLowerCase()!=='no match')||(d.airmousse&&d.airmousse!==''&&d.airmousse.toLowerCase()!=='no match')||(d.tusk&&d.tusk!==''&&d.tusk.toLowerCase()!=='no tusk match')));
       const rims=[...new Set(rimMatches.map(d=>d.rim))].sort();
       if(rims.length>0){
         showStep4();
@@ -461,6 +470,23 @@
       return'https://www.amazon.com/s?k=Technomousse&tag=mousse1-20&smid=A122T64JJB9KPU';
     }
 
+    const TUSK_ASIN={
+      'TM1-22':'B0GZQ4HC2F',
+      'TM1-24':'B0H1NCZTQG',
+      'TM1-29':'B0H1NSPQZM',
+      'TM1-31':'B0H1NMNX1Z',
+      'TM1-33':'B0H1NK4KKY',
+    };
+    function getTuskURL(val){
+      const m=val.match(/\bTM1-\d+\b/);
+      if(m){
+        const code=m[0];
+        if(TUSK_ASIN[code])return'https://www.amazon.com/dp/'+TUSK_ASIN[code]+'?tag=mousse1-20&smid=A122T64JJB9KPU';
+        return'https://www.amazon.com/s?k=Tusk+Mousse+Tube+'+encodeURIComponent(code)+'&tag=mousse1-20&smid=A122T64JJB9KPU';
+      }
+      return'https://www.amazon.com/s?k=Tusk+TM1+Mousse+Tube&tag=mousse1-20&smid=A122T64JJB9KPU';
+    }
+
     function showResults(brand,model,size,rim){
       const entries=DATA.filter(d=>d.brand===brand&&d.model===model&&d.size===size);
       const entry=rim?entries.find(d=>d.rim===rim)||entries[0]:entries[0];
@@ -475,8 +501,10 @@
         {label:'Airmousse',            key:'airmousse',    cls:'pill-air',      pill:'Airmousse'},
         {label:'Mr. Wolf MousseBalls', key:'mousseballs',  cls:'pill-balls',    pill:'Mr. Wolf MousseBalls'},
         {label:'Dunlop Mousse',        key:'dunlop',       cls:'pill-dunlop',   pill:'Dunlop'},
+        {label:'Tusk TM1 Mousse',      key:'tusk',         cls:'pill-tusk',     pill:'Tusk',         getUrl:getTuskURL},
       ];
-      const hasAny=entry&&mousses.some(m=>entry[m.key]&&entry[m.key]!==''&&entry[m.key].toLowerCase()!=='no match'&&entry[m.key].toLowerCase()!=='none');
+      const noMatchVals=new Set(['no match','no tusk match','none','-','coming soon']);
+      const hasAny=entry&&mousses.some(m=>entry[m.key]&&entry[m.key]!==''&&!noMatchVals.has(entry[m.key].toLowerCase()));
       if(!entry||!hasAny){
         document.getElementById('results').style.display='none';
         document.getElementById('noResults').style.display='block';
@@ -489,7 +517,7 @@
         const val=entry[key];
         if(!val||val===''||val==='None')return;
         const card=document.createElement('div');card.className='mousse-card';
-        const isNoMatch=val.toLowerCase()==='no match'||val==='-';
+        const isNoMatch=noMatchVals.has(val.toLowerCase())||val==='-';
         let refHTML;
         if(isNoMatch){refHTML=`<div class="mousse-ref no-match">No Match</div>`;}
         else if(val.length>20){refHTML=`<div class="mousse-ref small">${val.replace(/,\s*/g,'<br>').replace(/:\s*/g,': ')}</div>`;}
